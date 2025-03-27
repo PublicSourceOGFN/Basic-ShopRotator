@@ -10,3 +10,4 @@ If you're creating a OGFN project and need a basic shop rotation system, this is
 
 # IMPORTANT:
 The item's are from "Item.json" so its not from real fortnite item shop's and i tried my best to make the price's like fortnite!
+and no need to credit me!
