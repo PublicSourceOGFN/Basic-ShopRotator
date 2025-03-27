@@ -1,7 +1,7 @@
 # Basic Shop Rotator for Fortnite
 This is a simple shop rotator made for Fortnite projects. If you're new to OGFN, this tool will help you rotate shop items easily. It’s great for managing in-game stores by automatically changing the items available.
 
-Features:
+# Features:
 ✅ Easy to set up and use
 ✅ Perfect for beginners in OGFN
 ✅ Rotates Fortnite shop items automatically
