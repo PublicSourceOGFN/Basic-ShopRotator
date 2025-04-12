@@ -24,7 +24,7 @@ const saveJSON = (path, data) => {
 };
 
 const updateShop = () => {
-    const items = loadJSON('item.json'); // better you don't touch this unless you know what you're doing lmfaoooo
+    const items = loadJSON('item.json'); // better you don't touch this unless you know what you're doing
     const catalogPath = 'D:\\path\\to\\your\\Config\\catalog_config.json'; // Change this to your backend path where the catalog_config.json is located yes yes yes
 
     if (!fs.existsSync(catalogPath)) {
@@ -94,7 +94,7 @@ fastify.get('/shop', async (request, reply) => {
 const start = async () => {
     try {
         await fastify.listen({ port: 3000 });
-        console.log(`\x1b[33m[Shop]\x1b[0m Shop Rotator running on http://localhost:3000/shop`);
+        console.log(`\x1b[33m[Shop]\x1b[0m Shop Rotator running on http://localhost:3000/shop`); // idk why but this is so useless
         updateShop(); 
     } catch (err) {
         console.error(err);
