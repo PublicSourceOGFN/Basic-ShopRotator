@@ -1,227 +1,63 @@
-// if you want you can change the prices of the items here
 const getPrice = (type, rarity) => {
-    if (type === 'AthenaCharacter') {
-        switch (rarity) {
-            case 'legendary':
-                return 2000;
-            case 'epic':
-                return 1500;
-            case 'rare':
-                return 1200;
-            case 'uncommon':
-                return 800;
-            case 'common':
-                return 0;
-            case 'slurp':
-                return 1500;
-            case 'dark':
-                return 800; 
-            case 'marvel':
-                return 800; 
-            case 'starwars':
-                return 1500; 
-            default:
-                return 0;
-        }
-    }
+    const seriesPriceMap = {
+        marvel: 1500,
+        dc: 1500,
+        starwars: 1500,
+        icon: 1500,
+        dark: 1200,
+        lava: 1200,
+        frozen: 1200,
+        shadow: 1200,
+        slurp: 800,
+        gaminglegends: 1500
+    };
 
-    if (type === 'AthenaPickaxe') {
-        switch (rarity) {
-            case 'legendary':
-                return 1500;
-            case 'epic':
-                return 1200;
-            case 'rare':
-                return 800;
-            case 'uncommon':
+    const defaultPrice = (legendary, epic, rare, uncommon, common = 0) => ({
+        legendary, epic, rare, uncommon, common
+    });
+
+    const priceTables = {
+        AthenaCharacter: defaultPrice(2000, 1500, 1200, 800),
+        AthenaPickaxe: defaultPrice(1500, 1200, 800, 500),
+        AthenaPickaxeDual: defaultPrice(1600, 1200, 800, 500),
+        AthenaGlider: defaultPrice(1500, 1200, 800, 500),
+        AthenaBackpack: defaultPrice(1000, 800, 500, 200),
+        AthenaDance: defaultPrice(0, 800, 500, 200),
+        AthenaItemWrap: defaultPrice(0, 700, 500, 300),
+        AthenaContrail: defaultPrice(0, 400, 200, 0),
+        AthenaLoadingScreen: defaultPrice(0, 0, 0, 0),
+        AthenaEmoji: defaultPrice(0, 0, 0, 0),
+        AthenaSpray: defaultPrice(0, 0, 0, 0),
+        AthenaMusicPack: defaultPrice(0, 500, 200, 0),
+        AthenaEmoteToy: defaultPrice(0, 500, 300, 200),
+        AthenaEmoticon: defaultPrice(0, 200, 0, 0)
+    };
+
+    rarity = rarity.toLowerCase();
+    type = type.toString();
+
+    if (seriesPriceMap[rarity]) {
+        switch (type) {
+            case 'AthenaCharacter':
+            case 'AthenaPickaxe':
+            case 'AthenaPickaxeDual':
+            case 'AthenaGlider':
+            case 'AthenaBackpack':
+            case 'AthenaItemWrap':
+                return seriesPriceMap[rarity];
+            case 'AthenaDance':
+            case 'AthenaMusicPack':
+            case 'AthenaEmoteToy':
                 return 500;
-            case 'common':
-                return 0;
-            case 'slurp':
-                return 800; 
-            case 'dark':
-                return 1200;
-            case 'marvel':
-                return 800;
-            case 'starwars':
-                return 800;
             default:
                 return 0;
         }
     }
 
-    if (type === 'AthenaGlider') {
-        switch (rarity) {
-            case 'legendary':
-                return 1500;
-            case 'epic':
-                return 1200;
-            case 'rare':
-                return 800;
-            case 'uncommon':
-                return 500;
-            case 'common':
-                return 0;
-            case 'slurp':
-                return 0; 
-            case 'dark':
-                return 500; 
-            case 'marvel':
-                return 1500; 
-            case 'starwars':
-                return 800; 
-            default:
-                return 0;
-        }
-    }
+    const table = priceTables[type];
+    if (!table) return 0;
 
-    if (type === 'AthenaEmoji') {
-        switch (rarity) {
-            case 'legendary':
-                return 0;
-            case 'epic':
-                return 0;
-            case 'rare':
-                return 0;
-            case 'uncommon':
-                return 0;
-            case 'common':
-                return 0;
-            case 'slurp':
-                return 0; 
-            case 'dark':
-                return 0; 
-            case 'marvel':
-                return 0; 
-            case 'starwars':
-                return 0; 
-            default:
-                return 0;
-        }
-    }
-
-    if (type === 'AthenaLoadingScreen') {
-        switch (rarity) {
-            case 'legendary':
-                return 0;
-            case 'epic':
-                return 0;
-            case 'rare':
-                return 0;
-            case 'uncommon':
-                return 0;
-            case 'common':
-                return 0;
-            case 'slurp':
-                return 0; 
-            case 'dark':
-                return 0;
-            case 'marvel':
-                return 0; 
-            case 'starwars':
-                return 0; 
-            default:
-                return 0;
-        }
-    }
-
-    if (type === 'AthenaDance') {
-        switch (rarity) {
-            case 'legendary':
-                return 0; 
-            case 'epic':
-                return 800;
-            case 'rare':
-                return 500;
-            case 'uncommon':
-                return 200;
-            case 'common':
-                return 0;
-            case 'marvel':
-                return 200; 
-            case 'starwars':
-                return 200; 
-            default:
-                return 0;
-        }
-    }
-
-    if (type === 'AthenaItemWrap') {
-        switch (rarity) {
-            case 'slurp':
-                return 500; 
-            case 'legendary':
-                return 0;
-            case 'epic':
-                return 700;
-            case 'rare':
-                return 500;
-            case 'uncommon':
-                return 300;
-            case 'common':
-                return 0;
-            case 'dark':
-                return 0; 
-            case 'marvel':
-                return 500;
-            case 'starwars':
-                return 300; 
-            default:
-                return 0;
-        }
-    }
-
-    if (type === 'AthenaSpray') {
-        switch (rarity) {
-            case 'slurp':
-                return 0; 
-            case 'legendary':
-                return 0;
-            case 'epic':
-                return 0;
-            case 'rare':
-                return 0;
-            case 'uncommon':
-                return 0;
-            case 'common':
-                return 0;
-            case 'dark':
-                return 0; 
-            case 'marvel':
-                return 0;
-            case 'starwars':
-                return 0; 
-            default:
-                return 0;
-        }
-    }
-
-    if (type === 'AthenaBackpack') {
-        switch (rarity) {
-            case 'slurp':
-                return 400; 
-            case 'legendary':
-                return 1000;
-            case 'epic':
-                return 800;
-            case 'rare':
-                return 500;
-            case 'uncommon':
-                return 200;
-            case 'common':
-                return 0;
-            case 'dark':
-                return 1200; 
-            case 'marvel':
-                return 800;
-            case 'starwars':
-                return 800; 
-            default:
-                return 0;
-        }
-    }
-
-    return 0; 
+    return table[rarity] ?? 0;
 };
 
 module.exports = { getPrice };
